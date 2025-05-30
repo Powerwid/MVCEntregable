@@ -40,6 +40,7 @@
                     <td>
                         <a href="index.php?accion=modificarproyectos&id_proyecto=<?php echo htmlspecialchars($proy->getId_proyecto()); ?>" class="btn btn-warning btn-sm">Modificar</a>
                         <a href="index.php?accion=borrarproyectos&id_proyecto=<?php echo htmlspecialchars($proy->getId_proyecto()); ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de borrar este proyecto?');">Borrar</a>
+                        <a href="index.php?accion=generarpdfproyecto&id_proyecto=<?php echo htmlspecialchars($proy->getId_proyecto()); ?>" class="btn btn-success btn-sm">Generar PDF</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

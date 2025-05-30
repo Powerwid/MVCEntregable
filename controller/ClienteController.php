@@ -1,6 +1,7 @@
 <?php
 require_once './model/Usuario/Auth.php';
 require_once './model/Cliente/ClienteModel.php';
+require_once './controller/ReporteController.php';
 
 class ClienteController {
     public function cargar() {
@@ -58,6 +59,16 @@ class ClienteController {
         if (isset($_GET['id_cliente'])) {
             $model = new ClienteModel();
             $model->borrar($_GET['id_cliente']);
+            header('Location: index.php?accion=cargarclientes');
+        }
+    }
+
+    public function generarPDFCliente() {
+        Auth::verificarSesion();
+        if (isset($_GET['id_cliente'])) {
+            $reporteController = new ReporteController();
+            $reporteController->generarPDFCliente($_GET['id_cliente']);
+        } else {
             header('Location: index.php?accion=cargarclientes');
         }
     }

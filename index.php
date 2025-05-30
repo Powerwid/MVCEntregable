@@ -54,6 +54,10 @@ switch ($accion) {
         $controller = new ClienteController();
         $controller->borrar();
         break;
+    case 'generarpdfcliente':
+        $controller = new ClienteController();
+        $controller->generarPDFCliente();
+        break;
 
     // Acciones de Proyectos
     case 'cargarproyectos':
@@ -71,6 +75,10 @@ switch ($accion) {
     case 'borrarproyectos':
         $controller = new ProyectoController();
         $controller->borrar();
+        break;
+    case 'generarpdfproyecto':
+        $controller = new ProyectoController();
+        $controller->generarPDF();
         break;
 
     // Acciones de Asignaciones de Proyectos
@@ -90,21 +98,10 @@ switch ($accion) {
         $controller = new AsignacionProyectoController();
         $controller->borrar();
         break;
-
-    // Acciones de Reportes
-    case 'proyectosPorCliente':
-        $controller = new ReporteController();
-        $controller->proyectosPorCliente();
+    case 'generarpdfasignacion':
+        $controller = new AsignacionProyectoController();
+        $controller->generarPDF();
         break;
-    case 'asignacionesPorUsuario':
-        $controller = new ReporteController();
-        $controller->asignacionesPorUsuario();
-        break;
-    case 'proyectosPorRangoFechas':
-        $controller = new ReporteController();
-        $controller->proyectosPorRangoFechas();
-        break;
-
     default:
         $controller = new AuthController();
         $controller->login();

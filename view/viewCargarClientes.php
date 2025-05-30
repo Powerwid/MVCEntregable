@@ -36,6 +36,7 @@
                     <td>
                         <a href="index.php?accion=modificarcliente&id_cliente=<?php echo htmlspecialchars($cli->getId_cliente()); ?>" class="btn btn-warning btn-sm">Modificar</a>
                         <a href="index.php?accion=borrarcliente&id_cliente=<?php echo htmlspecialchars($cli->getId_cliente()); ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de borrar este cliente?');">Borrar</a>
+                        <a href="index.php?accion=generarpdfcliente&id_cliente=<?php echo htmlspecialchars($cli->getId_cliente()); ?>" class="btn btn-success btn-sm">Generar PDF</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

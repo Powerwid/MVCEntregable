@@ -1,6 +1,7 @@
 <?php
 require_once './model/Usuario/Auth.php';
 require_once './model/Proyecto/ProyectoModel.php';
+require_once './controller/ReporteController.php';
 
 class ProyectoController {
     public function cargar() {
@@ -62,6 +63,16 @@ class ProyectoController {
         if (isset($_GET['id_proyecto'])) {
             $model = new ProyectoModel();
             $model->borrar($_GET['id_proyecto']);
+            header('Location: index.php?accion=cargarproyectos');
+        }
+    }
+
+    public function generarPDF() {
+        Auth::verificarSesion();
+        if (isset($_GET['id_proyecto'])) {
+            $reporteController = new ReporteController();
+            $reporteController->generarPDFProyecto($_GET['id_proyecto']);
+        } else {
             header('Location: index.php?accion=cargarproyectos');
         }
     }

@@ -34,6 +34,7 @@
                     <td>
                         <a href="index.php?accion=modificarasignacionesproyecto&id_asignacion=<?php echo htmlspecialchars($asig->getId_asignacion()); ?>" class="btn btn-warning btn-sm">Modificar</a>
                         <a href="index.php?accion=borrarasignacionesproyecto&id_asignacion=<?php echo htmlspecialchars($asig->getId_asignacion()); ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de borrar esta asignación?');">Borrar</a>
+                        <a href="index.php?accion=generarpdfasignacion&id_asignacion=<?php echo htmlspecialchars($asig->getId_asignacion()); ?>" class="btn btn-success btn-sm">Generar PDF</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
