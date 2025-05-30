@@ -4,6 +4,7 @@ require_once './controller/UsuarioController.php';
 require_once './controller/ClienteController.php';
 require_once './controller/ProyectoController.php';
 require_once './controller/AsignacionProyectoController.php';
+require_once './controller/ReporteController.php';
 
 $accion = isset($_GET['accion']) ? $_GET['accion'] : 'login';
 
@@ -88,6 +89,20 @@ switch ($accion) {
     case 'borrarasignacionesproyecto':
         $controller = new AsignacionProyectoController();
         $controller->borrar();
+        break;
+
+    // Acciones de Reportes
+    case 'proyectosPorCliente':
+        $controller = new ReporteController();
+        $controller->proyectosPorCliente();
+        break;
+    case 'asignacionesPorUsuario':
+        $controller = new ReporteController();
+        $controller->asignacionesPorUsuario();
+        break;
+    case 'proyectosPorRangoFechas':
+        $controller = new ReporteController();
+        $controller->proyectosPorRangoFechas();
         break;
 
     default:
